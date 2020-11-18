@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios"
 
+import store from './store/store';
+import { addUsers } from './actions/users';
+
 class App extends Component {
     componentDidMount() {
       axios.get('http://localhost:3000/users')
       .then(response => {
-        const result = response.data
-        console.log(result)
+          console.log(response.data)
+        store.dispatch(addUsers(response.data.results))
       })
     }
     
