@@ -4,9 +4,10 @@ import axios from "axios"
 
 class App extends Component {
     componentDidMount() {
-      axios.get('https://randomuser.me/users')
-      .then(res => {
-        console.log(res.data)
+      axios.get('http://localhost:3000/users')
+      .then(response => {
+        const result = response.data
+        console.log(result)
       })
     }
     
