@@ -4,9 +4,9 @@ import User from "./User"
 
 const UsersList = (props) => {
     return (
-        <>
+        <div className="user-list">
             {props.users && props.users.map(user => <User key={user.login.uuid} {...user}/>)}
-        </>
+        </div>
     )
 }
 

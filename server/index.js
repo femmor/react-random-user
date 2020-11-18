@@ -1,8 +1,10 @@
 const express = require("express")
 const axios = require("axios")
 
+const path = require('path');
+
 // Import cors
-const cors = require('cors')
+// const cors = require('cors')
 
 const PORT = 3000
 
@@ -10,7 +12,9 @@ const PORT = 3000
 const app = express()
 
 // Add cors to express middleware
-app.use(cors());
+// app.use(cors());
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Load the homepage
 app.get('/', (req, res) => {
