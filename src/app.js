@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios"
+import {Provider} from 'react-redux'
 
 import store from './store/store';
 import { addUsers } from './actions/users';
+
+// Components
+import Header from "./components/Header"
+import UsersList from "./components/UsersList"
 
 class App extends Component {
     componentDidMount() {
@@ -16,9 +21,14 @@ class App extends Component {
     
     render() {
         return (
-            <h1>Welcome to REACT!!</h1>
+            <div>
+                <Header/>
+                <UsersList/>
+            </div>
         )
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}>
+    <App />
+</Provider>, document.getElementById('root'));
